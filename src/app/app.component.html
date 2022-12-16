@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" class="toolbar">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img width=" 160" alt="iRobotLogo"
+      src="data:image/png;base64,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" />
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container hasBackdrop>
+  <mat-sidenav #sidenav mode="over">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/home'" [routerLinkActive]="['is-active']"> Dashboard </a>
+      <a mat-list-item [routerLink]="'users'" [routerLinkActive]="['is-active']"> Users </a>
+      <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,115 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$poc-primary: mat.define-palette(mat.$indigo-palette);
+$poc-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$poc-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$poc-theme: mat.define-light-theme((
+  color: (
+    primary: $poc-primary,
+    accent: $poc-accent,
+    warn: $poc-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($poc-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background: #fff; overflow: hidden; }
+
+.mat-drawer{
+  background: #fff;
+  min-width: 200px;
+  box-shadow: none;
+  .mat-nav-list{
+    .mat-list-item{
+      &.is-active{
+        background: #f0f8ff;
+      }
+      &:hover{
+        background: #f0f8ff;
+      }
+    }
+  }
+}
+.mat-drawer-backdrop{
+  background: rgba(240, 248, 255, 0.4)
+}
+.toolbar{
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(68, 115, 85);
+    color: white;
+    font-weight: 600;
+    flex-direction: row !important;
+    width: 100%;
+    img{
+      margin: 0px;
+    }
+    #twitter-logo {
+      height: 40px;
+      margin: 0 8px;
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+    #youtube-logo {
+      height: 40px;
+      margin: 0 16px;
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+}
+.page-container{
+  padding: 20px 40px 40px;
+  height: 80vh;
+  .page-header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    .leftControls, .rightControls{
+      display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    }
+  }
+  .page-title{
+    margin: 0px;
+  }
+}
+.pointer{
+  cursor: pointer;
+}

@@ -1,0 +1,66 @@
+<div class="page-container">
+  <h1 class="page-title">Dashboard</h1>
+
+  <h4>Users</h4>
+
+  <div class="card-container">
+    <ng-container *ngFor="let user of users">
+      <mat-card appearance="raised" class="card">
+        <mat-card-content class="card-content">
+          <mat-icon color="#447355">supervisor_account</mat-icon>
+          <div class="card-body">
+            <div class="card-count">{{user.count}}</div>
+            <div class="card-title">{{user.type === 'L' ? 'Super Admin Users' : user.type === 'S' ? 'Admin Users' :
+              'Contractors'}}</div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+  </div>
+
+
+  <h4>Devices</h4>
+
+  <div class="card-container">
+    <mat-card appearance="raised" class="card">
+      <mat-card-content class="card-content">
+        <mat-icon color="#447355">device</mat-icon>
+        <div class="card-body">
+          <div class="card-count">14</div>
+          <div class="card-title">Roomba s9+</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card appearance="raised" class="card">
+      <mat-card-content class="card-content">
+        <mat-icon color="#447355">supervisor_account</mat-icon>
+        <div class="card-body">
+          <div class="card-count">7</div>
+          <div class="card-title">Brava Jet m6</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card appearance="raised" class="card">
+      <mat-card-content class="card-content">
+        <mat-icon color="#447355">supervisor_account</mat-icon>
+        <div class="card-body">
+          <div class="card-count">4</div>
+          <div class="card-title">Roomba i3+</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card appearance="raised" class="card">
+      <mat-card-content class="card-content">
+        <mat-icon color="#447355">supervisor_account</mat-icon>
+        <div class="card-body">
+          <div class="card-count">4</div>
+          <div class="card-title">Roomba common J7+</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

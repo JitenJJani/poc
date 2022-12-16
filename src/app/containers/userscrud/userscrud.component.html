@@ -1,0 +1,35 @@
+<div class="page-container">
+
+    <div class="page-header">
+        <h1 class="page-title">{{!isEdit ? 'Create New User' : 'Edit User'}}</h1>
+    </div>
+    <form [formGroup]="usersForm" (ngSubmit)="onUserFormSubmit()">
+        <div class="formInputs">
+            <mat-form-field class="formInput" appearence="Fill">
+                <mat-label>First Name</mat-label>
+                <input matInput name="firstname" formControlName="firstname" placeholder="Enter First name" required>
+                <mat-error *ngIf="handleError('firstname', 'required')">Firstname is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formInput">
+                <mat-label>Last Name</mat-label>
+                <input matInput name="lastname" formControlName="lastname" placeholder="Enter Last name" required>
+                <mat-error *ngIf="handleError('lastname', 'required')">Firstname is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formInput">
+                <mat-label>Email</mat-label>
+                <input matInput name="email" formControlName="email" placeholder="Enter Email" required>
+                <mat-error *ngIf="handleError('email', 'required')">Email is required</mat-error>
+                <mat-error *ngIf="handleError('email', 'email')">Email must be a valid email address</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formInput">
+                <mat-label>Contact</mat-label>
+                <input matInput name="contact" formControlName="contact" placeholder="Enter Contact" required>
+                <mat-error *ngIf="handleError('contact', 'required')">Contact is required</mat-error>
+                <mat-error *ngIf="handleError('contact', 'minLength')">Enter valid contact number</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <button mat-raised-button color="primary">{{!isEdit ? 'Create': 'Update'}}</button>
+        </div>
+    </form>
+</div>

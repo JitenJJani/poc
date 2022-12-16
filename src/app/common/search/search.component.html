@@ -1,0 +1,18 @@
+<div class="searchbar" [class.hasError]="showError">
+    <mat-form-field appearance="fill" class="selectOption">
+        <mat-label>Select</mat-label>
+        <mat-select [(ngModel)]="searchColumn">
+            <mat-option *ngFor="let option of options" [value]="option.key">
+                {{option.value}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="searchBox">
+        <mat-label>Search</mat-label>
+        <input matInput name="search" #searchBox placeholder="Search" [(ngModel)]="searchString"
+            (keydown.enter)="handleSearch()">
+        <mat-icon class="searchIcon" *ngIf="!searchString">search</mat-icon>
+        <mat-icon class="searchIcon" (click)="clearSearch()" mat-button *ngIf="searchString">close</mat-icon>
+    </mat-form-field>
+    <div class="error" *ngIf="showError">Please select or enter value to search</div>
+</div>

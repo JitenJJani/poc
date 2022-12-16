@@ -3,31 +3,39 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ApiserviceService } from 'src/services/apiservice.service';
+import { of } from 'rxjs';
 import { UserscrudComponent } from './userscrud.component';
 
 class MockRouter {
   navigateByUrl(url: string): string { return url; }
 }
 
-describe('UserscrudComponent', () => {
+fdescribe('UserscrudComponent', () => {
   let component: UserscrudComponent;
   let fixture: ComponentFixture<UserscrudComponent>;
 
   beforeEach(async () => {
+    const activatedRouteStub = {
+      paramMap: {
+        subscribe(): any {
+          return of();
+        }
+      }
+    };
+
     await TestBed.configureTestingModule({
       declarations: [UserscrudComponent],
-      imports: [BrowserAnimationsModule, HttpClientModule, ReactiveFormsModule, FormsModule, MatSnackBarModule],
-      providers: [{ provide: Router, useClass: MockRouter }],
+      imports: [BrowserAnimationsModule, HttpClientModule, ReactiveFormsModule, FormsModule, MatSnackBarModule, RouterModule],
+      providers: [{ provide: Router, useClass: MockRouter }, ApiserviceService, { provide: ActivatedRoute, useValue: activatedRouteStub }],
     })
       .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(UserscrudComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
   });
 
   it('should create', () => {
